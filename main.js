@@ -2,18 +2,14 @@ const API = 'https://pokeapi.co/api/v2/'
 
 
 
-const getData = async (hash, num) => {
+const getData = async (API, hash, num) => {
   const apiURL = `${API}${hash}${num}`
+  
   try {
     const response = await fetch(apiURL)
     const data = await response.json()
     console.log(data)
-    if (data) {
-      return data
-    } else {
-      return ''
-    }
-    // return data
+    return data
   } catch (error) {
     console.log('Fetch error', error)
   }
@@ -21,9 +17,10 @@ const getData = async (hash, num) => {
 
 const card = async () => {
   const DEX_NUM = Math.ceil(Math.random() * 893)
-  const ITEM_NUM = Math.ceil(Math.random() * 1005)
-  const pokemon = await getData('pokemon/', DEX_NUM)
-  const item = await getData('item/', ITEM_NUM)
+  const ITEM_NUM = Math.ceil(Math.random() * 141)
+  const pokemon = await getData(API, 'pokemon/', DEX_NUM)
+  const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
+  const item = await getData('', itemSelector.items[ITEM_NUM].url, '')
   const randomAbility = Math.floor(Math.random() * pokemon.abilities.length)
   const ability = pokemon.abilities[randomAbility].ability.name
   const randomMovesIndex = []
@@ -47,7 +44,7 @@ const card = async () => {
       <figure class="pkmn-img"><img src=${pokemon.sprites.front_default} alt=""></figure>
       <div class="pkmn-data">
         <div class="pkmn-item">
-          <h2 class="pkmn-item__name">Item: <span>${item.name}</span></h2>
+          <h2 class="pkmn-item__name">Item: <span>${itemSelector.items[ITEM_NUM].name}</span></h2>
           <figure class="pkmn-item__img"><img src="${item.sprites.default}" alt=""></figure>
         </div>
         <h2 class="pkmn-ability">Ability: <span> ${ability}</span></h2>
