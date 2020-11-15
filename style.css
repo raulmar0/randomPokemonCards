@@ -3,3 +3,99 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #30362F;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  height: 50rem;
+  width: 30rem;
+}
+
+.pkmn-card__upper {
+  background-color: #D0CFEC;
+  width: 25rem;
+  height: 5rem;
+  margin: 0 auto;
+  position: relative;
+  top: 2.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pkmn-card__upper h1 {
+  font-family: 'Goldman', cursive;
+  font-size: 3rem;
+  color: #30362F;
+}
+
+.pkmn-card__lower {
+  background-color: #6A8E7F;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.pkmn-img, .pkmn-img img {
+  width: 100%;
+}
+
+.pkmn-data {
+  position: relative;
+  bottom: 3rem;
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pkmn-card__lower h2 {
+  font-family: 'Goldman', cursive;
+  font-size: 2rem;
+  color: #F7FFF7;
+}
+
+.pkmn-card__lower span {
+  font-family: 'Ubuntu Mono', sans-serif;
+  font-size: 0.8em;
+}
+
+.pkmn-item {
+  display: flex;
+  align-items: center;
+}
+
+.pkmn-moves {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.pkmn-moves__list {
+  display: grid;
+  grid-template: 40% 40% / 50% 50%;
+  gap: 10px 5px;
+}
+
+.pkmn-moves__list .move {
+  font-family: 'Ubuntu Mono', monospace;
+  width: 100%;
+  height: 4rem;
+}
