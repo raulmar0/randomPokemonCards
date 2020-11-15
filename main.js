@@ -12,6 +12,7 @@ const getData = async (API, hash, num) => {
     return data
   } catch (error) {
     console.log('Fetch error', error)
+    return ''
   }
 }
 
@@ -22,7 +23,7 @@ const card = async () => {
   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
   const item = await getData('', itemSelector.items[ITEM_NUM].url, '')
   const randomAbility = Math.floor(Math.random() * pokemon.abilities.length)
-  const ability = pokemon.abilities[randomAbility].ability.name
+  const ability = pokemon.abilities.length ? pokemon.abilities[randomAbility].ability.name : 'No ability'
   const randomMovesIndex = []
   const randomMoves = []
 
@@ -31,8 +32,8 @@ const card = async () => {
   }
 
   for (index of randomMovesIndex) {
-    randomMoves.push(pokemon.moves[index].move.name)
-    console.log(index)
+    // randomMoves.push(pokemon.moves[index].move.name)
+    pokemon.moves.length ? randomMoves.push(pokemon.moves[index].move.name) : ''
   }
 
   console.log(ability)
@@ -51,10 +52,10 @@ const card = async () => {
         <div class="pkmn-moves">
           <h2 class="pkmn-moves__title">Moves</h2>
           <div class="pkmn-moves__list">
-            <button class="move">${randomMoves[0]}</button>
-            <button class="move">${randomMoves[1]}</button>
-            <button class="move">${randomMoves[2]}</button>
-            <button class="move">${randomMoves[3]}</button>
+            <button class="move">${pokemon.moves.length ? randomMoves[0] : '-'}</button>
+            <button class="move">${pokemon.moves.length ? randomMoves[1] : '-'}</button>
+            <button class="move">${pokemon.moves.length ? randomMoves[2] : '-'}</button>
+            <button class="move">${pokemon.moves.length ? randomMoves[3] : '-'}</button>
           </div>
         </div>
       </div>
