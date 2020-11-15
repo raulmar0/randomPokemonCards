@@ -98,4 +98,15 @@ main {
   font-family: 'Ubuntu Mono', monospace;
   width: 100%;
   height: 4rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  background-color: #D0CFEC;
+}
+.move:hover {
+  background-color: #D9DBF1;
+}
+
+.move:active {
+  background-color: #FFF;
 }
