@@ -18,16 +18,16 @@ const getData = async (API, hash, num) => {
 
 const card = async () => {
   const DEX_NUM = Math.ceil(Math.random() * 893)
-  const ITEM_NUM = Math.ceil(Math.random() * 141)
+  const ITEM_NUM = Math.floor(Math.random() * 141) //ceil
 
   const pokemon = await getData(API, 'pokemon/', DEX_NUM)
   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
   // const itemURL = itemSelector.items[ITEM_NUM].url ? itemSelector.items[ITEM_NUM].url : itemSelector.items[ITEM_NUM].url
   
-  while (!itemSelector.items[ITEM_NUM]) {
-    const ITEM_NUM = Math.ceil(Math.random() * 141)
-    const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
-  }
+  // while (!itemSelector.items[ITEM_NUM]) {
+  //   const ITEM_NUM = Math.ceil(Math.random() * 141)
+  //   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
+  // }
 
   const item = await getData('', itemSelector.items[ITEM_NUM].url, '')
 
