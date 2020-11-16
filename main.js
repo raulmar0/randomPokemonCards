@@ -24,10 +24,10 @@ const card = async () => {
   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
   // const itemURL = itemSelector.items[ITEM_NUM].url ? itemSelector.items[ITEM_NUM].url : itemSelector.items[ITEM_NUM].url
   
-  // while (!itemSelector.items[ITEM_NUM]) {
-  //   const ITEM_NUM = Math.ceil(Math.random() * 141)
-  //   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
-  // }
+  while (!itemSelector.items[ITEM_NUM]) {
+    const ITEM_NUM = Math.ceil(Math.random() * 141)
+    const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
+  }
 
   const item = await getData('', itemSelector.items[ITEM_NUM].url, '')
 
