@@ -24,7 +24,7 @@ const card = async () => {
   const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
   // const itemURL = itemSelector.items[ITEM_NUM].url ? itemSelector.items[ITEM_NUM].url : itemSelector.items[ITEM_NUM].url
   
-  while (!itemSelector.items[ITEM_NUM].url) {
+  while (!itemSelector.items[ITEM_NUM]) {
     const ITEM_NUM = Math.ceil(Math.random() * 141)
     const itemSelector = await getData(API, 'item-attribute/holdable-active/', '')
   }
@@ -41,12 +41,12 @@ const card = async () => {
     randomMovesIndex.push(Math.floor(Math.random() * pokemon.moves.length))
   }
 
-  for (index of randomMovesIndex) {
-    // randomMoves.push(pokemon.moves[index].move.name)
-    pokemon.moves.length ? randomMoves.push(pokemon.moves[index].move.name) : ''
+  for (index of randomMovesIndex) { 
+    pokemon.moves.length ? randomMoves.push(pokemon.moves[index].move.name) : randomMoves.push('')
   }
 
-  console.log(ability)
+  console.log(randomMoves)
+  // console.log(ability)
 
 
   const view = `
